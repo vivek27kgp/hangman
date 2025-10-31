@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Sparkles, RotateCcw } from "lucide-react";
 
 const WORDS = [
@@ -215,11 +215,7 @@ export default function HangmanGame() {
   const [gameState, setGameState] = useState("playing"); // playing, won, lost
   const [showAnimation, setShowAnimation] = useState(false);
 
-  useEffect(() => {
-    startNewGame();
-  }, []);
-
-  const startNewGame = () => {
+  const startNewGame = useCallback(() => {
     let randomWord;
     do {
       randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
@@ -231,7 +227,11 @@ export default function HangmanGame() {
     setWrongGuesses(0);
     setGameState("playing");
     setShowAnimation(false);
-  };
+  }, [currentWord, previousWord]);
+
+  useEffect(() => {
+    startNewGame();
+  }, [startNewGame]);
 
   const resetGame = () => {
     setScore(0);
@@ -407,13 +407,21 @@ export default function HangmanGame() {
             {gameState === "won" ? (
               <div className="text-6xl animate-bounce-slow">🎊 🏆 🎊</div>
             ) : (
-              <div className="flex justify-center gap-2">
+              <div className="space-y-4">
+                <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-6">
+                  <div className="text-4xl mb-2">😔</div>
+                  <p className="text-white text-xl font-bold mb-2">Oops! Nice try!</p>
+                  <p className="text-purple-200 text-lg mb-3">The correct word was:</p>
+                  <div className="text-3xl font-black text-yellow-300 tracking-wider">
+                    {currentWord}
+                  </div>
+                </div>
                 <button
                   onClick={resetGame}
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2"
+                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2 mx-auto"
                 >
                   <RotateCcw size={20} />
-                  Play Again
+                  Try Again
                 </button>
               </div>
             )}
