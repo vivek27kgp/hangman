@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Sparkles, RotateCcw } from "lucide-react";
 
 const WORDS = [
@@ -215,7 +215,12 @@ export default function HangmanGame() {
   const [gameState, setGameState] = useState("playing"); // playing, won, lost
   const [showAnimation, setShowAnimation] = useState(false);
 
-  const startNewGame = useCallback(() => {
+  useEffect(() => {
+    startNewGame();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const startNewGame = () => {
     let randomWord;
     do {
       randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
@@ -227,11 +232,7 @@ export default function HangmanGame() {
     setWrongGuesses(0);
     setGameState("playing");
     setShowAnimation(false);
-  }, [currentWord, previousWord]);
-
-  useEffect(() => {
-    startNewGame();
-  }, [startNewGame]);
+  };
 
   const resetGame = () => {
     setScore(0);
