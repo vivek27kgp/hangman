@@ -289,7 +289,7 @@ export default function HangmanGame() {
       return (
         <div
           key={idx}
-          className={`w-10 h-12 sm:w-12 sm:h-14 flex items-center justify-center text-2xl sm:text-3xl font-bold border-b-4 mx-1 transition-all duration-300 ${
+          className={`w-8 h-10 sm:w-10 sm:h-12 lg:w-12 lg:h-14 flex items-center justify-center text-lg sm:text-2xl lg:text-3xl font-bold border-b-4 mx-0.5 sm:mx-1 transition-all duration-300 ${
             isGuessed
               ? "border-green-500 text-white scale-110"
               : "border-white text-transparent"
@@ -313,7 +313,7 @@ export default function HangmanGame() {
           key={letter}
           onClick={() => handleGuess(letter)}
           disabled={isGuessed || gameState !== "playing"}
-          className={`w-10 h-10 sm:w-12 sm:h-12 m-1 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-110 active:scale-95 disabled:cursor-not-allowed ${
+          className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 m-0.5 sm:m-1 rounded-lg font-bold text-xs sm:text-sm lg:text-base transition-all duration-200 transform hover:scale-110 active:scale-95 disabled:cursor-not-allowed ${
             isCorrect
               ? "bg-green-500 text-white shadow-lg"
               : isWrong
@@ -342,7 +342,7 @@ export default function HangmanGame() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex flex-col items-center justify-center p-2 sm:p-4">
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.8); }
@@ -381,68 +381,64 @@ export default function HangmanGame() {
         }
       `}</style>
 
-      {/* TATA ETHICS WEEK GAMES Header */}
-      <div className="text-center mb-6">
-        <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight mb-2">
-          TATA ETHICS WEEK GAMES
-        </h1>
-      </div>
-
-      <div className="max-w-4xl w-full bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-6 sm:p-10">
+      <div className="max-w-4xl w-full bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-10">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Sparkles className="text-yellow-300 animate-spin-slow" size={32} />
-            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+        <div className="text-center mb-6">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3">
+            <Sparkles className="text-yellow-300 animate-spin-slow" size={24} />
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               Hangman
             </h1>
-            <Sparkles className="text-yellow-300 animate-spin-slow" size={32} />
+            <Sparkles className="text-yellow-300 animate-spin-slow" size={24} />
           </div>
-          <p className="text-purple-200 text-lg">{getStatusMessage()}</p>
+          <p className="text-purple-200 text-sm sm:text-base lg:text-lg px-2">{getStatusMessage()}</p>
         </div>
 
         {/* Score & Stats */}
-        <div className="flex justify-between items-center mb-8 bg-white/5 rounded-2xl p-4">
+        <div className="flex justify-between items-center mb-6 bg-white/5 rounded-2xl p-3 sm:p-4">
           <div className="text-center">
-            <div className="text-5xl mb-1 animate-bounce-slow">
+            <div className="text-3xl sm:text-4xl lg:text-5xl mb-1 animate-bounce-slow">
               {getEmoji()}
             </div>
           </div>
           <div className="text-center">
-            <p className="text-purple-300 text-sm font-semibold">SCORE</p>
-            <p className="text-4xl font-black text-white">{score}</p>
+            <p className="text-purple-300 text-xs sm:text-sm font-semibold">SCORE</p>
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">{score}</p>
           </div>
           <div className="text-center">
-            <p className="text-purple-300 text-sm font-semibold">REMAINING</p>
-            <p className="text-4xl font-black text-white">
+            <p className="text-purple-300 text-xs sm:text-sm font-semibold">REMAINING</p>
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
               {MAX_WRONG_GUESSES - wrongGuesses}
             </p>
           </div>
         </div>
 
         {/* Hangman Drawing and Hint Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-8">
-          <HangmanDrawing wrongCount={wrongGuesses} />
+        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 mb-6">
+          <div className="scale-75 sm:scale-90 lg:scale-100">
+            <HangmanDrawing wrongCount={wrongGuesses} />
+          </div>
           
           {/* Hint Section */}
-          <div className="relative">
+          <div className="relative w-full flex justify-center">
             <button
               onClick={toggleHint}
-              className={`bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2 ${
+              className={`bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2 ${
                 hintUsed ? 'opacity-75' : 'animate-pulse-slow'
               }`}
             >
-              <Lightbulb size={24} className={showHint ? 'animate-bounce' : ''} />
-              {showHint ? 'Hide Hint' : 'Get Hint'}
+              <Lightbulb size={20} className={showHint ? 'animate-bounce' : ''} />
+              <span className="hidden xs:inline">{showHint ? 'Hide Hint' : 'Get Hint'}</span>
+              <span className="xs:hidden">💡</span>
             </button>
             
             {showHint && (
-              <div className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-2xl shadow-2xl animate-slideIn min-w-[280px] max-w-[320px] z-10">
+              <div className="absolute top-12 sm:top-16 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 sm:p-4 rounded-2xl shadow-2xl animate-slideIn w-[280px] sm:w-[320px] max-w-[90vw] z-10">
                 <div className="flex items-center gap-2 mb-2">
-                  <Lightbulb size={20} className="text-yellow-300" />
-                  <span className="font-bold text-sm">HINT</span>
+                  <Lightbulb size={18} className="text-yellow-300" />
+                  <span className="font-bold text-xs sm:text-sm">HINT</span>
                 </div>
-                <p className="text-sm leading-relaxed">
+                <p className="text-xs sm:text-sm leading-relaxed">
                   {WORD_HINTS[currentWord]}
                 </p>
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rotate-45"></div>
@@ -452,30 +448,29 @@ export default function HangmanGame() {
         </div>
 
         {/* Word Display */}
-        <div className="flex justify-center flex-wrap mb-8 min-h-[60px]">
+        <div className="flex justify-center flex-wrap mb-6 min-h-[48px] sm:min-h-[60px] px-2">
           {displayWord()}
         </div>
 
         {/* Win/Loss Animation */}
         {showAnimation && (
-          <div className="text-center mb-6">
+          <div className="text-center mb-4 sm:mb-6">
             {gameState === "won" ? (
-              <div className="text-6xl animate-bounce-slow">🎊 🏆 🎊</div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl animate-bounce-slow">🎊 🏆 🎊</div>
             ) : (
-              <div className="space-y-4">
-                <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-6">
-                  <div className="text-4xl mb-2">😔</div>
-                  <p className="text-white text-xl font-bold mb-2">Oops! Nice try!</p>
-                  <p className="text-purple-200 text-lg mb-3">The correct word was:</p>
-                  <div className="text-3xl font-black text-yellow-300 tracking-wider">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="bg-blue-500/20 border border-blue-500/50 rounded-2xl p-4 sm:p-6">
+                  <p className="text-white text-lg sm:text-xl font-bold mb-2">Good try!</p>
+                  <p className="text-purple-200 text-sm sm:text-base lg:text-lg mb-3">The correct word was:</p>
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-black text-yellow-300 tracking-wider break-all">
                     {currentWord}
                   </div>
                 </div>
                 <button
                   onClick={resetGame}
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2 mx-auto"
+                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2 mx-auto"
                 >
-                  <RotateCcw size={20} />
+                  <RotateCcw size={16} />
                   Try Again
                 </button>
               </div>
@@ -484,15 +479,15 @@ export default function HangmanGame() {
         )}
 
         {/* Keyboard */}
-        <div className="flex flex-wrap justify-center max-w-2xl mx-auto">
+        <div className="flex flex-wrap justify-center max-w-2xl mx-auto px-2">
           {generateKeyboard()}
         </div>
 
         {/* Reset Button */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-6 sm:mt-8">
           <button
             onClick={resetGame}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-full font-semibold text-sm transition-all duration-200 transform hover:scale-105 border border-gray-300"
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 transform hover:scale-105 border border-gray-300"
           >
             Reset Game
           </button>
