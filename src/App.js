@@ -2,108 +2,108 @@ import React, { useState, useEffect } from "react";
 import { Sparkles, RotateCcw, Lightbulb } from "lucide-react";
 
 const WORD_HINTS = {
-  "WHISTLEBLOWER": "Someone who exposes wrongdoing",
-  "ETHICS": "Moral principles that govern behavior",
-  "INTEGRITY": "Being honest and having strong moral principles",
-  "EXCELLENCE": "The quality of being outstanding",
-  "PIONEERING": "Being the first to develop new methods",
-  "UNITY": "The state of being united or joined",
-  "RESPONSIBILITY": "The state of being accountable",
-  "TRANSPARENCY": "Openness and honesty in communication",
-  "RESPECT": "Admiration for someone's qualities",
-  "TRUST": "Firm belief in reliability of someone",
-  "ACCOUNTABILITY": "Being responsible for your actions",
-  "FAIRNESS": "Treating people equally and justly",
-  "HONESTY": "The quality of being truthful",
-  "DIVERSITY": "A range of different things",
-  "EQUALITY": "The state of being equal",
-  "MERITOCRACY": "System where advancement is based on ability",
-  "INNOVATION": "The process of creating new ideas",
-  "CITIZENSHIP": "The status of being a citizen",
-  "SUSTAINABILITY": "Meeting needs without compromising the future",
-  "COMPLIANCE": "Conforming to rules and regulations",
-  "CONFIDENTIALITY": "Keeping information private",
-  "LEADERSHIP": "The action of leading a group",
-  "COMMITMENT": "The state of being dedicated",
-  "COURAGE": "The ability to do something frightening",
-  "EMPATHY": "Understanding others' feelings",
-  "COLLABORATION": "Working together to achieve a goal",
-  "PROFESSIONALISM": "Competence and skill in a profession",
-  "TOLERANCE": "Willingness to accept different opinions",
-  "UNDERSTANDING": "Comprehension of someone or something",
-  "PRIVACY": "Freedom from being observed",
-  "SAFETY": "The condition of being protected",
-  "LEARNING": "The acquisition of knowledge",
-  "DEVELOPMENT": "The process of growing or improving",
-  "EMPOWERMENT": "Giving someone authority or power",
-  "COMMUNICATION": "The means of sending information",
-  "DISCLOSURE": "The action of revealing information",
-  "PROTECTION": "The action of protecting someone",
-  "GOVERNANCE": "The action of governing a state",
-  "OBJECTIVITY": "Judgment based on facts, not influenced by feelings",
-  "AUTHENTICITY": "The quality of being genuine",
-  "INCLUSIVITY": "The practice of including all people",
-  "RESPONSIVENESS": "Reacting quickly and positively",
-  "CREDIBILITY": "The quality of being trusted",
-  "DISCIPLINE": "The practice of training for obedience",
-  "DEDICATION": "The quality of being committed",
-  "MOTIVATION": "The reason for acting in a particular way",
-  "CLARITY": "The quality of being clear",
-  "SUPPORT": "Give assistance to someone",
-  "ENGAGEMENT": "The action of engaging or being engaged",
-  "CONTRIBUTION": "A gift or payment to help a cause",
-  "IMPROVEMENT": "The action of making something better",
-  "HONOUR": "High respect and great esteem",
-  "VALUES": "Principles or standards of behavior",
-  "PRINCIPLES": "Fundamental truths as the basis for reasoning",
-  "FOCUS": "The center of interest or activity",
-  "VISION": "The ability to think about the future",
-  "STRATEGY": "A plan of action to achieve a goal",
-  "PERFORMANCE": "The action of carrying out a task",
-  "RESULTS": "A consequence or outcome of something",
-  "QUALITY": "The standard of something measured",
-  "SERVICE": "The action of helping someone",
-  "RELIABILITY": "The quality of being trustworthy",
-  "EFFICIENCY": "Achieving maximum productivity",
-  "AGILITY": "Ability to move quickly and easily",
-  "ADAPTABILITY": "The quality of being able to adjust",
-  "BALANCE": "An even distribution of weight",
-  "ETHICAL": "Relating to moral principles",
-  "SOCIAL": "Relating to society or its organization",
-  "ENVIRONMENT": "The surroundings in which we live",
-  "VOLUNTEER": "A person who freely offers to help",
-  "PARTNERSHIP": "An association of two or more people",
-  "INCLUSION": "The action of including someone",
-  "DIGNITY": "The state of being worthy of honor",
-  "ACCOUNTABLE": "Required to explain actions or decisions",
-  "TRANSPARENT": "Easy to perceive or detect",
-  "SAFEGUARD": "A measure taken to protect someone",
-  "PREVENTION": "The action of stopping something",
-  "RESILIENCE": "The ability to recover quickly",
-  "INSPIRATION": "The process of being mentally stimulated",
-  "OPTIMISM": "Hopefulness about the future",
-  "SYNERGY": "The interaction of elements for greater effect",
-  "RESOLUTION": "A firm decision to do something",
-  "CONFLICT": "A serious disagreement or argument",
-  "FEEDBACK": "Information about reactions to a product",
-  "RECOGNITION": "Acknowledgment of the existence of something",
-  "ACHIEVEMENT": "A thing done successfully",
-  "EXPERTISE": "Expert skill or knowledge",
-  "KNOWLEDGE": "Facts and information acquired",
-  "INFORMATION": "Facts provided about something",
-  "DATA": "Facts and statistics collected for analysis",
-  "PRINCIPLE": "A fundamental truth or proposition",
-  "STANDARD": "A level of quality or attainment",
-  "BENEFIT": "An advantage or profit gained",
-  "OPPORTUNITY": "A set of circumstances for doing something",
-  "GROWTH": "The process of increasing in size",
-  "POTENTIAL": "Having the capacity to develop",
-  "MERIT": "The quality of being deserving",
-  "ETHOS": "The characteristic spirit of a culture",
-  "CONSCIENCE": "An inner feeling of right and wrong",
-  "REPUTATION": "The beliefs held about someone",
-  "IDENTITY": "The fact of being who you are",
-  "CULTURE": "The arts and customs of a society"
+  WHISTLEBLOWER: "Someone who exposes wrongdoing",
+  ETHICS: "Moral principles that govern behavior",
+  INTEGRITY: "Being honest and having strong moral principles",
+  EXCELLENCE: "The quality of being outstanding",
+  PIONEERING: "Being the first to develop new methods",
+  UNITY: "The state of being united or joined",
+  RESPONSIBILITY: "The state of being accountable",
+  TRANSPARENCY: "Openness and honesty in communication",
+  RESPECT: "Admiration for someone's qualities",
+  TRUST: "Firm belief in reliability of someone",
+  ACCOUNTABILITY: "Being responsible for your actions",
+  FAIRNESS: "Treating people equally and justly",
+  HONESTY: "The quality of being truthful",
+  DIVERSITY: "A range of different things",
+  EQUALITY: "The state of being equal",
+  MERITOCRACY: "System where advancement is based on ability",
+  INNOVATION: "The process of creating new ideas",
+  CITIZENSHIP: "The status of being a citizen",
+  SUSTAINABILITY: "Meeting needs without compromising the future",
+  COMPLIANCE: "Conforming to rules and regulations",
+  CONFIDENTIALITY: "Keeping information private",
+  LEADERSHIP: "The action of leading a group",
+  COMMITMENT: "The state of being dedicated",
+  COURAGE: "The ability to do something frightening",
+  EMPATHY: "Understanding others' feelings",
+  COLLABORATION: "Working together to achieve a goal",
+  PROFESSIONALISM: "Competence and skill in a profession",
+  TOLERANCE: "Willingness to accept different opinions",
+  UNDERSTANDING: "Comprehension of someone or something",
+  PRIVACY: "Freedom from being observed",
+  SAFETY: "The condition of being protected",
+  LEARNING: "The acquisition of knowledge",
+  DEVELOPMENT: "The process of growing or improving",
+  EMPOWERMENT: "Giving someone authority or power",
+  COMMUNICATION: "The means of sending information",
+  DISCLOSURE: "The action of revealing information",
+  PROTECTION: "The action of protecting someone",
+  GOVERNANCE: "The action of governing a state",
+  OBJECTIVITY: "Judgment based on facts, not influenced by feelings",
+  AUTHENTICITY: "The quality of being genuine",
+  INCLUSIVITY: "The practice of including all people",
+  RESPONSIVENESS: "Reacting quickly and positively",
+  CREDIBILITY: "The quality of being trusted",
+  DISCIPLINE: "The practice of training for obedience",
+  DEDICATION: "The quality of being committed",
+  MOTIVATION: "The reason for acting in a particular way",
+  CLARITY: "The quality of being clear",
+  SUPPORT: "Give assistance to someone",
+  ENGAGEMENT: "The action of engaging or being engaged",
+  CONTRIBUTION: "A gift or payment to help a cause",
+  IMPROVEMENT: "The action of making something better",
+  HONOUR: "High respect and great esteem",
+  VALUES: "Principles or standards of behavior",
+  PRINCIPLES: "Fundamental truths as the basis for reasoning",
+  FOCUS: "The center of interest or activity",
+  VISION: "The ability to think about the future",
+  STRATEGY: "A plan of action to achieve a goal",
+  PERFORMANCE: "The action of carrying out a task",
+  RESULTS: "A consequence or outcome of something",
+  QUALITY: "The standard of something measured",
+  SERVICE: "The action of helping someone",
+  RELIABILITY: "The quality of being trustworthy",
+  EFFICIENCY: "Achieving maximum productivity",
+  AGILITY: "Ability to move quickly and easily",
+  ADAPTABILITY: "The quality of being able to adjust",
+  BALANCE: "An even distribution of weight",
+  ETHICAL: "Relating to moral principles",
+  SOCIAL: "Relating to society or its organization",
+  ENVIRONMENT: "The surroundings in which we live",
+  VOLUNTEER: "A person who freely offers to help",
+  PARTNERSHIP: "An association of two or more people",
+  INCLUSION: "The action of including someone",
+  DIGNITY: "The state of being worthy of honor",
+  ACCOUNTABLE: "Required to explain actions or decisions",
+  TRANSPARENT: "Easy to perceive or detect",
+  SAFEGUARD: "A measure taken to protect someone",
+  PREVENTION: "The action of stopping something",
+  RESILIENCE: "The ability to recover quickly",
+  INSPIRATION: "The process of being mentally stimulated",
+  OPTIMISM: "Hopefulness about the future",
+  SYNERGY: "The interaction of elements for greater effect",
+  RESOLUTION: "A firm decision to do something",
+  CONFLICT: "A serious disagreement or argument",
+  FEEDBACK: "Information about reactions to a product",
+  RECOGNITION: "Acknowledgment of the existence of something",
+  ACHIEVEMENT: "A thing done successfully",
+  EXPERTISE: "Expert skill or knowledge",
+  KNOWLEDGE: "Facts and information acquired",
+  INFORMATION: "Facts provided about something",
+  DATA: "Facts and statistics collected for analysis",
+  PRINCIPLE: "A fundamental truth or proposition",
+  STANDARD: "A level of quality or attainment",
+  BENEFIT: "An advantage or profit gained",
+  OPPORTUNITY: "A set of circumstances for doing something",
+  GROWTH: "The process of increasing in size",
+  POTENTIAL: "Having the capacity to develop",
+  MERIT: "The quality of being deserving",
+  ETHOS: "The characteristic spirit of a culture",
+  CONSCIENCE: "An inner feeling of right and wrong",
+  REPUTATION: "The beliefs held about someone",
+  IDENTITY: "The fact of being who you are",
+  CULTURE: "The arts and customs of a society",
 };
 
 const WORDS = Object.keys(WORD_HINTS);
@@ -215,12 +215,11 @@ export default function HangmanGame() {
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState("playing"); // playing, won, lost
   const [showAnimation, setShowAnimation] = useState(false);
-  const [showHint, setShowHint] = useState(false);
-  const [hintUsed, setHintUsed] = useState(false);
+
 
   useEffect(() => {
     startNewGame();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const startNewGame = () => {
@@ -235,8 +234,7 @@ export default function HangmanGame() {
     setWrongGuesses(0);
     setGameState("playing");
     setShowAnimation(false);
-    setShowHint(false);
-    setHintUsed(false);
+
   };
 
   const resetGame = () => {
@@ -245,12 +243,7 @@ export default function HangmanGame() {
     startNewGame();
   };
 
-  const toggleHint = () => {
-    setShowHint(!showHint);
-    if (!hintUsed) {
-      setHintUsed(true);
-    }
-  };
+
 
   const handleGuess = (letter) => {
     if (gameState !== "playing" || guessedLetters.has(letter)) return;
@@ -338,7 +331,7 @@ export default function HangmanGame() {
   const getStatusMessage = () => {
     if (gameState === "won") return "Amazing! You won! 🌟";
     if (gameState === "lost") return `Game Over! The word was: ${currentWord}`;
-    return "Guess the word, one letter at a time!";
+    return "Guess the word using clues from the Tata Code of Conduct";
   };
 
   return (
@@ -391,7 +384,9 @@ export default function HangmanGame() {
             </h1>
             <Sparkles className="text-yellow-300 animate-spin-slow" size={24} />
           </div>
-          <p className="text-purple-200 text-sm sm:text-base lg:text-lg px-2">{getStatusMessage()}</p>
+          <p className="text-purple-200 text-sm sm:text-base lg:text-lg px-2">
+            {getStatusMessage()}
+          </p>
         </div>
 
         {/* Score & Stats */}
@@ -402,48 +397,43 @@ export default function HangmanGame() {
             </div>
           </div>
           <div className="text-center">
-            <p className="text-purple-300 text-xs sm:text-sm font-semibold">SCORE</p>
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">{score}</p>
+            <p className="text-purple-300 text-xs sm:text-sm font-semibold">
+              SCORE
+            </p>
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+              {score}
+            </p>
           </div>
           <div className="text-center">
-            <p className="text-purple-300 text-xs sm:text-sm font-semibold">REMAINING</p>
+            <p className="text-purple-300 text-xs sm:text-sm font-semibold">
+              REMAINING
+            </p>
             <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
               {MAX_WRONG_GUESSES - wrongGuesses}
             </p>
           </div>
         </div>
 
-        {/* Hangman Drawing and Hint Section */}
-        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 mb-6">
-          <div className="scale-75 sm:scale-90 lg:scale-100">
-            <HangmanDrawing wrongCount={wrongGuesses} />
+        {/* Game Content with Hint Sidebar */}
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 mb-6">
+          {/* Main Game Area */}
+          <div className="flex-1 flex flex-col items-center justify-center gap-4 sm:gap-6">
+            <div className="scale-75 sm:scale-90 lg:scale-100">
+              <HangmanDrawing wrongCount={wrongGuesses} />
+            </div>
           </div>
-          
-          {/* Hint Section */}
-          <div className="relative w-full flex justify-center">
-            <button
-              onClick={toggleHint}
-              className={`bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 flex items-center gap-2 ${
-                hintUsed ? 'opacity-75' : 'animate-pulse-slow'
-              }`}
-            >
-              <Lightbulb size={20} className={showHint ? 'animate-bounce' : ''} />
-              <span className="hidden xs:inline">{showHint ? 'Hide Hint' : 'Get Hint'}</span>
-              <span className="xs:hidden">💡</span>
-            </button>
-            
-            {showHint && (
-              <div className="absolute top-12 sm:top-16 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 sm:p-4 rounded-2xl shadow-2xl animate-slideIn w-[280px] sm:w-[320px] max-w-[90vw] z-10">
-                <div className="flex items-center gap-2 mb-2">
-                  <Lightbulb size={18} className="text-yellow-300" />
-                  <span className="font-bold text-xs sm:text-sm">HINT</span>
-                </div>
-                <p className="text-xs sm:text-sm leading-relaxed">
-                  {WORD_HINTS[currentWord]}
-                </p>
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rotate-45"></div>
+
+          {/* Hint Sidebar */}
+          <div className="lg:w-64 xl:w-72">
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 border border-blue-500/30 rounded-2xl p-3 sm:p-4 backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <Lightbulb size={16} className="text-yellow-300" />
+                <span className="font-bold text-xs sm:text-sm text-white">HINT</span>
               </div>
-            )}
+              <p className="text-xs sm:text-sm text-purple-100 leading-relaxed">
+                {WORD_HINTS[currentWord]}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -456,12 +446,18 @@ export default function HangmanGame() {
         {showAnimation && (
           <div className="text-center mb-4 sm:mb-6">
             {gameState === "won" ? (
-              <div className="text-4xl sm:text-5xl lg:text-6xl animate-bounce-slow">🎊 🏆 🎊</div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl animate-bounce-slow">
+                🎊 🏆 🎊
+              </div>
             ) : (
               <div className="space-y-3 sm:space-y-4">
                 <div className="bg-blue-500/20 border border-blue-500/50 rounded-2xl p-4 sm:p-6">
-                  <p className="text-white text-lg sm:text-xl font-bold mb-2">Good try!</p>
-                  <p className="text-purple-200 text-sm sm:text-base lg:text-lg mb-3">The correct word was:</p>
+                  <p className="text-white text-lg sm:text-xl font-bold mb-2">
+                    Good try!
+                  </p>
+                  <p className="text-purple-200 text-sm sm:text-base lg:text-lg mb-3">
+                    The correct word was:
+                  </p>
                   <div className="text-xl sm:text-2xl lg:text-3xl font-black text-yellow-300 tracking-wider break-all">
                     {currentWord}
                   </div>
